@@ -13,28 +13,35 @@ public class SolBinary {
     // 이진 변환의 횟수와 변환 과정에서 제거된 모든 0의 개수를 각각 배열에 담아 return 하도록 solution 함수를 완성해주세요.
 
     //"110010101001"	[3,8]
-    public int[] solution(String s) {
-
-        int tryCount = 0;
-        int removeCount = 0;
-        char[] chars = s.toCharArray();
-
-
-
-        int[] answer = {};
+    public int[] solution2(String s) {
+        int[] answer = new int[2];
+        int zeroCount = 0;
+        int removalCount = 0;
+        while(!s.equals("1")){
+            int length = s.length();
+            s = s.replaceAll("0", "");
+            zeroCount += length - s.length(); // 0 뺀만큼의 길이를 알기 위해
+            s = Integer.toBinaryString(s.length());
+            removalCount ++;
+        }
+        answer[0] = removalCount;
+        answer[1] = zeroCount;
         return answer;
     }
 
-    void removal(char[] chars, int count){
-
-        for (char aChar : chars) {
-            if(aChar != '0'){
-
-            }
-            count++;
+    public int[] solution(String s) {
+        int[] answer = new int[2];
+        int zeroCount = 0;
+        int binaryCount = 0;
+        while(!s.equals("1")) {
+            int len = s.length();
+            s = s.replaceAll("0", "");
+            zeroCount += len - s.length();
+            s = Integer.toBinaryString(s.length());
+            binaryCount++;
         }
-        if (chars.length > 1){
-            removal(chars, count);
-        }
+        answer[0] = binaryCount;
+        answer[1] = zeroCount;
+        return answer;
     }
 }
