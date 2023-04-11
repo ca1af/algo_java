@@ -80,4 +80,75 @@ public class Sol0411 {
         return answer;
     }
 
+
+    public int[] solution1(int brown, int yellow) {
+        int[] answer = {};
+        int total = brown + yellow;
+
+        //  합의 약수 중 중간값(이거나 중간값들)
+        // 9 1,3,9 <
+        // 48 -> 1,2,4,6,8,12,24,48 딱 중간두놈이네
+
+        List<Integer> integers = new LinkedList<>();
+
+        for (int i = 1; i < total; i++) {
+            if (total % i == 0){
+                integers.add(i);
+            }
+        }
+        System.out.println(integers);
+
+        int z = integers.size() % 2;
+
+        if (z == 0){
+            answer = new int[]{integers.get(z - 1), integers.get(z)};
+        } else {
+            answer = new int[]{z-integers.get(z - 1), z-integers.get(z - 1)};
+        }
+
+        return answer;
+    }
+
+    public int[] solution2(int brown, int yellow) {
+        int[] answer = new int[2];
+        int total = brown + yellow;
+
+        for (int height = 3; height <= Math.sqrt(total); height++) {
+            if (total % height == 0) {
+                int width = total / height;
+
+                int brownCnt = (width + height) * 2 - 4;
+                if (brownCnt == brown) {
+                    answer[0] = width;
+                    answer[1] = height;
+                    break;
+                }
+            }
+        }
+
+        return answer;
+    }
+
+    // 콜라문제
+    public static int solution(int a, int b, int n) {
+        // 관건은, 나머지로 남은 병을 어떻게 처리 할 것이냐?
+        int answer = 0;
+        int exchange = n / a;
+
+        // n이 1보다 클 경우에만 계산
+        while (n > 1){
+            answer += exchange;
+            n = exchange + n % a;
+            exchange = n / a;
+        }
+
+        return answer;
+    }
+    public static void main(String[] args) {
+        int solution = solution(2, 1, 20);
+        System.out.println(solution);
+        System.out.println(20/2);
+    }
+
+
 }
