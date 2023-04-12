@@ -9,7 +9,7 @@ public class Sol0411 {
         // 캘린더 객체의 달은 0부터 시작함
 
         int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-        // 인덱스이므로 -1
+
         return days[dayOfWeek - 1];
     }
 

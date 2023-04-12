@@ -37,6 +37,4 @@ public class Sol0407 {
 
         return true;
     }
-
-
 }
