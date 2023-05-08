@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Objects;
+
 public class Sol0430 {
     //https://school.programmers.co.kr/learn/courses/30/lessons/12911
 
@@ -34,4 +37,5 @@ public class Sol0430 {
         }
         return count;
     }
+
 }
