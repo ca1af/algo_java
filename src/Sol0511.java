@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class Sol0511 {
     // 스코빌 지수 주어지면 최소 + 최소+1 *2 해서 전체 배열을 모두 스코빌보다 더 높게 하기.
