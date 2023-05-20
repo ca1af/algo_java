@@ -1,7 +1,6 @@
 package boj;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class BOJ0519 {
 
@@ -91,4 +90,36 @@ public class BOJ0519 {
             System.out.println(parseInt);
         }
     }
+
+    public class BOJ1158 {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int N = scanner.nextInt();
+            int K = scanner.nextInt();
+
+            Queue<Integer> queue = new LinkedList<>();
+
+            for (int i = 1; i <= N; i++) {
+                queue.offer(i);
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("<");
+
+            while (!queue.isEmpty()) {
+                for (int i = 0; i < K - 1; i++) {
+                    queue.offer(queue.poll());
+                }
+                sb.append(queue.poll());
+
+                if (!queue.isEmpty()) {
+                    sb.append(", ");
+                }
+            }
+
+            sb.append(">");
+            System.out.println(sb.toString());
+        }
+    }
+
 }
