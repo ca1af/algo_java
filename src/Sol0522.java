@@ -137,4 +137,123 @@ public class Sol0522 {
 
         return String.valueOf(parseInt);
     }
+
+    //https://school.programmers.co.kr/learn/courses/30/lessons/136798
+
+    public int solutionTimeOut(int number, int limit, int power) {
+        // number 까지 숫자들의 약수 집합을 구해서, 배열로 만든다.
+        // 약수 집합 배열을 반복문으로 탐색하면서 limit 보다 큰 녀석은 power 로 재할당한다.
+
+        int[] weapons = new int[number + 1];
+
+        for (int i = 1; i <= number; i++) {
+            int temp = 0;
+            for (int j = 1; j <= i ; j++) {
+                if (i % j == 0){
+                    temp++;
+                }
+            }
+
+            weapons[i] = temp;
+            temp = 0;
+        }
+
+        for (int i = 0; i < weapons.length; i++) {
+            if (weapons[i] > limit){
+                weapons[i] = power;
+            }
+        }
+
+        int answer = 0;
+
+        for (int weapon : weapons) {
+            answer += weapon;
+        }
+
+        return answer;
+    }
+
+    public int solution(int number, int limit, int power) {
+        // number 까지 숫자들의 약수 집합을 구해서, 배열로 만든다.
+        // 약수 집합 배열을 반복문으로 탐색하면서 limit 보다 큰 녀석은 power 로 재할당한다.
+
+        int[] weapons = new int[number + 1];
+
+        for (int i = 1; i <= number; i++) {
+            int temp = 0;
+            for (int j = 1; j <= Math.sqrt(i) ; j++) { // 제곱근 사용
+                if (i % j == 0){
+                    temp++;
+                    int otherDivisor = i / j; // 제곱근 사용하므로 제곱근 이상의 약수도 페어로 해서 찾을 수 있게 함
+                    if (otherDivisor != j) {
+                        temp++;
+                    }
+                }
+            }
+
+            weapons[i] = temp;
+            temp = 0;
+        }
+
+        for (int i = 0; i < weapons.length; i++) {
+            if (weapons[i] > limit){
+                weapons[i] = power;
+            }
+        }
+
+        int answer = 0;
+
+        for (int weapon : weapons) {
+            answer += weapon;
+        }
+
+        return answer;
+    }
+
+    public int solution0(int[] ingredient) {
+        int answer = 0;
+        Queue<Integer> queue = new LinkedList<>();
+
+        for (int i : ingredient) {
+            queue.add(i);
+        }
+
+
+        for (Integer integer : queue) {
+            if (integer == 1){
+                if (!queue.isEmpty() && queue.peek() == 2){
+                    queue.poll();
+                    if (!queue.isEmpty() && queue.peek() == 3){
+                        queue.poll();
+                        answer++;
+                    }
+                }
+            }
+        }
+
+        return answer;
+    }
+
+    public int solution(int[] ingredient) {
+        int result = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int in : ingredient) {
+            stack.push(in);
+            if (stack.size() >= 4) {
+                int size = stack.size();
+                if(stack.get(size - 1) == 1
+                        && stack.get(size - 2) == 3
+                        && stack.get(size - 3) == 2
+                        && stack.get(size - 4) == 1) {
+                    result++;
+                    stack.pop();
+                    stack.pop();
+                    stack.pop();
+                    stack.pop();
+                }
+            }
+        }
+        return result;
+    }
+
 }
