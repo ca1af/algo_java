@@ -146,4 +146,5 @@ public class BOJ0524 {
         }
     }
 
+
 }
