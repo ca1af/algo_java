@@ -83,4 +83,73 @@ public class BOJ0523 {
             System.out.println(a + " " + b);
         }
     }
+
+    public class BOJ2720 {
+        public static void main0(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int count = sc.nextInt();
+
+            int[] rests = new int[count];
+
+            for (int i = 0; i < count; i++) {
+                rests[i] = sc.nextInt();
+            }
+
+            int quarter = 25;
+            int dime = 10;
+            int nickel = 5;
+            int penny = 1;
+
+            // ex 124 -> 4, 2, 0, 4;
+
+            int[][] answer = new int[4][count];
+
+            for (int i = 0; i < rests.length; i++) {
+                int rest = rests[i];
+                answer[0][i] = rest / quarter;
+                rest %= quarter;
+
+                answer[1][i] = rest / dime;
+                rest %= dime;
+
+                answer[0][i] = rest / nickel;
+                rest %= nickel;
+
+                answer[1][i] = rest / penny;
+            }
+
+            for (int i = 0; i < answer.length; i++) {
+                for (int i1 = 0; i1 < answer.length; i1++) {
+
+                }
+            }
+        }
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+
+            int T = scanner.nextInt(); // 테스트 케이스의 개수
+
+            for (int i = 0; i < T; i++) {
+                int C = scanner.nextInt(); // 거스름돈
+
+                // 각 동전의 개수 계산
+                int q = C / 25;
+                C %= 25;
+
+                int d = C / 10;
+                C %= 10;
+
+                int n = C / 5;
+                C %= 5;
+
+                int p = C;
+
+                System.out.println(q + " " + d + " " + n + " " + p);
+            }
+        }
+    }
+
+
 }
