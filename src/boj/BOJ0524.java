@@ -146,5 +146,84 @@ public class BOJ0524 {
         }
     }
 
+    public class BOJ19532{
+        public static void main0(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int a = sc.nextInt();;
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+            int d = sc.nextInt();
+            int e = sc.nextInt();
+            int f = sc.nextInt();
+
+            for (int x = -999; x <= 999; x++) {
+                for (int y = -999; y <= 999; y++) {
+                    if ((a * x) - (b * y) == c && (d * x) + (e * y) == f){
+                        System.out.println(x + " " + y);
+                    }
+                }
+            }
+        }
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+            int d = sc.nextInt();
+            int e = sc.nextInt();
+            int f = sc.nextInt();
+
+            int x = 0;
+            int y = 0;
+
+            for (x = -999; x <= 999; x++) {
+                for (y = -999; y <= 999; y++) {
+                    if (a * x + b * y == c && d * x + e * y == f) {
+                        System.out.println(x + " " + y);
+                        break;
+                    }
+                }
+                if (y <= 999) {
+                    break;
+                }
+            }
+        }
+    }
+
+    public class BOJ2839{
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int target = sc.nextInt();
+
+            int answer = 0;
+
+
+            while (target != 0){
+                if (target < 3){
+                    answer = -1;
+                    break;
+                }
+
+                if (target > 5){
+                    answer += target /  5;
+                }
+
+                target = target % 5;
+
+                if (target > 3){
+                    answer += target / 3;
+                }
+
+                target = target % 3;
+            }
+
+            System.out.println(answer);
+        }
+    }
+
 
 }

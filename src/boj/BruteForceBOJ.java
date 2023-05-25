@@ -51,21 +51,18 @@ public class BruteForceBOJ {
 
             System.out.println(answer);
         }
-
     }
-    //https://www.acmicpc.net/problem/19532
-    public class BOJ19532 {
+
+    // TODO: 2023/05/25 다시 풀어보기 https://www.acmicpc.net/submit/2839/61271262
+    public class BOJ2839 {
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
 
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
-            int d = sc.nextInt();
-            int e = sc.nextInt();
-            int f = sc.nextInt();
+
+
         }
     }
+
 
 
 }
