@@ -189,7 +189,6 @@ public class BOJ0525 {
         }
     }
 
-    // TODO: 2023/05/25 https://www.acmicpc.net/problem/1343
 
     public static class BOJ1343 {
         public static void main(String[] args) {
@@ -239,4 +238,33 @@ public class BOJ0525 {
             return sb.toString();
         }
     }
+    public static class BOJ1748{
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int test = 1;
+
+            int targetInt = sc.nextInt();
+
+            int digit = 1;
+
+            int multiple = 10;
+
+            int answer = 0;
+
+            // targetInt -> 231 이라 치자.
+
+            while (test <= targetInt){
+                if (test % multiple == 0){
+                    multiple *= 10;
+                    digit++;
+                }
+                answer += digit;
+                test++;
+            }
+
+            System.out.println(answer);
+        }
+    }
+
 }
