@@ -267,4 +267,94 @@ public class BOJ0525 {
         }
     }
 
+    public class BOJ2587{
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int[] numbers = new int[5];
+            int sum = 0;
+
+            for (int i = 0; i < 5; i++) {
+                numbers[i] = scanner.nextInt();
+                sum += numbers[i];
+            }
+
+            Arrays.sort(numbers);
+
+            int median = numbers[2];
+            int average = sum / 5;
+
+            System.out.println(average);
+            System.out.println(median);
+        }
+    }
+
+    public class BOJ25305{
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int ints = sc.nextInt();
+            int targetNum = sc.nextInt();
+
+            int[] arr = new int[ints];
+
+            for (int i = 0; i < ints; i++) {
+                arr[i] = sc.nextInt();
+            }
+
+            Arrays.sort(arr);
+
+            int i = arr[ints - targetNum];
+
+            System.out.println(i);
+        }
+    }
+
+    public class BOJ10989 {
+        public static void main0(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int count = sc.nextInt();
+
+            // 입력 범위인 1 이상 10,000 이하의 빈도수 배열 생성
+            int[] countArray = new int[10001];
+
+            // 입력 받은 수를 배열에 빈도수로 저장
+            for (int i = 0; i < count; i++) {
+                int num = sc.nextInt();
+                countArray[num]++;
+            }
+
+            // 빈도수 배열을 기반으로 정렬된 결과 출력
+            for (int i = 1; i <= 10000; i++) {
+                for (int j = 0; j < countArray[i]; j++) {
+                    System.out.println(i);
+                }
+            }
+        }
+        public static void main(String[] args) throws IOException {
+            int[] cnt = new int[10001];
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            int N = Integer.parseInt(br.readLine());
+
+            for (int i = 0; i < N; i++) {
+                cnt[Integer.parseInt(br.readLine())] ++;
+            }
+
+            br.close();
+
+            StringBuilder sb = new StringBuilder();
+
+            for(int i = 1; i < 10001; i++){
+                while(cnt[i] > 0){
+                    sb.append(i).append('\n');
+                    cnt[i]--;
+                }
+            }
+            System.out.println(sb);
+        }
+    }
+
+
 }
