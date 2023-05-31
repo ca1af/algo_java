@@ -76,6 +76,7 @@ public class BOJPrefixSum {
         }
     }
 
+    // TODO: 2023/05/31 BOJ 10986 못풀었음
     public static class BOJ10986 {
         public static void main0(String[] args) {
             Scanner sc = new Scanner(System.in);
