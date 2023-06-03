@@ -202,5 +202,4 @@ public class BOJPrefixSum {
             System.out.println(max);
         }
     }
-
 }
