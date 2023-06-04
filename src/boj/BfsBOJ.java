@@ -197,4 +197,77 @@ public class BfsBOJ {
             }
         }
     }
+
+
+    public static class BOJ15649 {
+        static boolean[] visited;
+        static int[] map;
+        static int N,M;
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            N = sc.nextInt(); //  1 ~ N 까지의 자연 수 중에서
+            M = sc.nextInt(); //  중복 없이 만들 수 있는 M 길이의 수열
+
+            visited = new boolean[10];
+            map = new int[10];
+
+            // 1, 2, 3 에 2면
+            // 1, 2 / 1, 3 / 2, 1 / 2, 3  / 3 ,1 / 3, 2 일케 셋 되겠지? (양방향)
+            // 그렇다면, 연결 리스트에 양방향 뭔가를 추가하는 일이 되겠네
+        }
+
+        public static void dfs(int idx){ // 현재 자리수
+            if (idx == M){
+                for (int i = 0; i < map.length; i++) {
+                    System.out.println(map[i] + " ");
+                }
+                System.out.println();
+                return;
+            }
+
+            for (int i =1; i <= N; i++) { // 자릿수마다 반복
+                if (!visited[i]){
+                    visited[i] = true;
+
+                    map[idx] = i; // 배열에 해당 자릿수 입력
+                    dfs(idx + 1);
+                }
+
+            }
+        }
+    }
+
+    public class BOJ1977{
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int N = sc.nextInt();
+            int M = sc.nextInt();
+
+
+            for (int i = M; i <= N; i++) { //이하니까 포함
+
+            }
+        }
+    }
+
+    public static class BOJ27433 {
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            int given = sc.nextInt();
+
+            long fact = fact(given);
+
+            System.out.println(fact);
+        }
+
+        public static long fact(int given){
+            if (given == 1){
+                return 1;
+            }
+            return given * fact(given - 1);
+        }
+    }
 }
