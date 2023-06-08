@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.PublicKey;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class BOJ0607 {
 
@@ -54,7 +51,7 @@ public class BOJ0607 {
         }
     }
 
-    public class BOJ11866{
+    public class BOJ11866 {
         public static void main(String[] args) {
             // 7, 3 -> <3, 6, 2, 7, 5, 1, 4>
 
@@ -90,4 +87,59 @@ public class BOJ0607 {
         }
     }
 
+    public class BOJ10773 {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int K = Integer.parseInt(br.readLine());
+
+            Stack<Integer> stack = new Stack<>();
+            for (int i = 0; i < K; i++) {
+                int number = Integer.parseInt(br.readLine());
+                if (number == 0) {
+                    stack.pop();
+                } else {
+                    stack.push(number);
+                }
+            }
+
+            int sum = 0;
+            while (!stack.isEmpty()) {
+                sum += stack.pop();
+            }
+
+            System.out.println(sum);
+        }
+    }
+
+    public static class BOJ9461 {
+        public static void main(String[] args) {
+            //1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 12 --> 6 "번쨰" 구해라고하면 -> 3 (인덱스 아니라 인덱스 - 1 번째)
+            //0, 1, 2, 3, 4 까지는 미리 선언
+            // 그 후는 arr[N] = arr[N-1] + arr[N-5] //
+
+            // N의 범위는 100까지.
+
+            Scanner scanner = new Scanner(System.in);
+            int T = scanner.nextInt();
+
+            long[] dp = new long[101]; // 범위 틀렸었음
+
+            dp[1] = dp[2] = dp[3] = 1;
+            dp[4] = dp[5] = 2;
+
+            for (int i = 6; i <= 100; i++) {
+                dp[i] = dp[i - 1] + dp[i - 5];
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            while (T-- > 0) {
+                int N = scanner.nextInt();
+                sb.append(dp[N]).append("\n");
+            }
+
+            System.out.println(sb.toString());
+        }
+    }
 }
+
