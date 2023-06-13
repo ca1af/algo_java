@@ -180,4 +180,122 @@ public class BojSET {
             }
         }
     }
+
+    public static class BOJ10816 {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            int N = Integer.parseInt(br.readLine()); // 실제 가지고있는 카드 개수들
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            HashMap<Integer, Integer> map = new HashMap<>();
+
+            for (int i = 0; i < N; i++) {
+                int card = Integer.parseInt(st.nextToken());
+                map.put(card, map.getOrDefault(card, 0) + 1); // 맵에 개수별로 정리
+            }
+
+            int M = Integer.parseInt(br.readLine()); // 해당 카드 몇개있는지 물어보는것
+
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+            st = new StringTokenizer(br.readLine());
+
+            for (int i = 0; i < M; i++) {
+                int X = Integer.parseInt(st.nextToken());
+                if (!map.containsKey(X)) bw.append("0");
+                else {
+                    bw.append(String.valueOf(map.get(X)));
+                }
+
+                if (i != M - 1){
+                    bw.append(" ");
+                }
+            }
+
+            bw.flush();
+        }
+    }
+
+    public static class BOJ1764{
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+
+            int N = Integer.parseInt(st.nextToken()); // 듣
+            int M = Integer.parseInt(st.nextToken()); // 보
+
+            HashMap<String, Integer> map = new HashMap<>();
+            for (int i = 0; i < N; i++) {
+                map.put(br.readLine(), 0);
+            }
+
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i = 0; i < M; i++) {
+                String notSeen = br.readLine();
+                if (map.containsKey(notSeen)) arrayList.add(notSeen);
+            }
+
+            Collections.sort(arrayList); // 사전순
+
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+            bw.append(String.valueOf(arrayList.size()));
+            bw.append("\n");
+
+            for (int i = 0; i < arrayList.size(); i++) {
+                bw.append(arrayList.get(i));
+                if (i != arrayList.size() - 1){
+                    bw.append("\n");
+                }
+            }
+
+            bw.flush();
+            br.close();
+            bw.close();
+        }
+    }
+
+    public static class BOJ1269  {
+        public static void main(String[] args) throws IOException {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
+
+            HashMap<Integer, Integer> map = new HashMap<>();
+
+            st = new StringTokenizer(br.readLine());
+            for (int i = 0; i < N; i++) {
+                int given = Integer.parseInt(st.nextToken());
+                map.put(given, 0);
+            }
+
+            st = new StringTokenizer(br.readLine());
+            for (int i = 0; i < M; i++) {
+                int given = Integer.parseInt(st.nextToken());
+                if (!map.containsKey(given)) map.put(given, 0);
+                else map.remove(given);
+            }
+
+            System.out.println(map.size());
+        }
+    }
+
+    public static class BOJ11478{
+        public static void main(String[] args) throws IOException {
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            String given = br.readLine();
+            HashSet<String> set = new HashSet<>();
+
+            for (int i = 0; i < given.length(); i++) {
+                for (int j = i + 1; j <= given.length(); j++) {
+                    set.add(given.substring(i, j));
+                }
+            }
+
+            System.out.println(set.size());
+        }
+    }
 }
