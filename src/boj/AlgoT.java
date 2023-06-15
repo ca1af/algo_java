@@ -3,7 +3,7 @@ package boj;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class algoT {
+public class AlgoT {
     public static class HubDNC1 {
         //[ { answer : 1, score : 5 }, { answer : 3, score : 3 }, { answer : 2, score : 4 } ] → a : 5
         // a 는 1번으로 모두 찍었고, 따라서 5점 얻었음. B는 3번으로 모두 찍었고, 따라서 3 점 얻음. C는 5번으로 모두 찍었고, 0점 얻음
