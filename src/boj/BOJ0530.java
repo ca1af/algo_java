@@ -129,8 +129,6 @@ public class BOJ0530 {
         }
     }
 
-    // TODO: 2023/05/30 https://www.acmicpc.net/problem/18870 
-
     public static class BOJ18870{
         public static void main(String[] args) {
             Scanner sc = new Scanner(System.in);
