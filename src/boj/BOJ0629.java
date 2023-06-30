@@ -3,6 +3,7 @@ package boj;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -48,6 +49,42 @@ public class BOJ0629 {
                 System.out.println(palindrome + " " + count);
                 count = 1;
             }
+        }
+    }
+
+    public static class BOJ4779 {
+        static char[] chars;
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+
+            while (sc.hasNext()){
+                int N = sc.nextInt();
+                int pow = (int) Math.pow(3, N);// 3의 N승
+                chars = new char[pow];
+                Arrays.fill(chars, '-'); // 다 채워놓고 초기화
+                cantor(0, pow - 1);
+                StringBuilder sb = new StringBuilder();
+                for (char aChar : chars) {
+                    sb.append(aChar);
+                }
+                System.out.println(sb.toString());
+
+            }
+
+            sc.close();
+        }
+
+        public static void cantor(int startIdx, int endIdx){
+            if (startIdx >= endIdx){
+                return;
+            }
+
+            int length = endIdx - startIdx + 1;
+            int third = length / 3;
+
+            cantor(startIdx, startIdx + third - 1);
+            Arrays.fill(chars, startIdx + third, startIdx + third * 2, ' ');
+            cantor(startIdx + third * 2, endIdx);
         }
     }
 }
